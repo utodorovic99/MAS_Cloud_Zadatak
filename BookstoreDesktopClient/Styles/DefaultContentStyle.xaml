@@ -1,0 +1,39 @@
+﻿<!--Default style used all over the application-->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<Style TargetType="UserControl">
+		<Setter Property="Background" Value ="Transparent"/>
+	</Style>
+	<Style TargetType="Label">
+		<Setter Property="Foreground" Value ="#03AED2"/>
+		<Setter Property="FontSize" Value ="14"/>
+		<Setter Property="FontWeight" Value ="Bold"/>
+		<Setter Property="BorderBrush" Value ="White"/>
+	</Style>
+	<Style TargetType="TextBlock">
+		<Setter Property="Foreground" Value ="#03AED2"/>
+		<Setter Property="FontSize" Value ="14"/>
+		<Setter Property="FontWeight" Value ="Bold"/>
+	</Style>
+	<Style TargetType="TextBox">
+		<Setter Property="Foreground" Value ="#03AED2"/>
+		<Setter Property="Background" Value ="#EADBC8"/>
+		<Setter Property="FontSize" Value ="14"/>
+		<Setter Property="FontWeight" Value ="Bold"/>
+		<Setter Property="Width" Value ="300"/>
+		<Setter Property="Height" Value ="25"/>
+		<Setter Property="BorderThickness" Value ="0"/>
+	</Style>
+	<Style TargetType="Button">
+		<Setter Property="Foreground" Value ="#03AED2"/>
+		<Setter Property="Background" Value ="#EADBC8"/>
+		<Setter Property="FontSize" Value ="14"/>
+		<Setter Property="FontWeight" Value="Bold"/>
+		<Setter Property="VerticalAlignment" Value ="Center"/>
+		<Setter Property="HorizontalAlignment" Value ="Center"/>
+		<Setter Property="Padding" Value ="15,5,15,5"/>
+		<Setter Property="BorderThickness" Value ="0"/>
+	</Style>
+
+</ResourceDictionary>

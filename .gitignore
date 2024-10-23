@@ -1,0 +1,7 @@
+
+/.vs
+/BookstoreDesktopClient/obj
+/BookstoreDesktopClient/bin
+/.vs/MAS_Cloud_Zadatak/DesignTimeBuild
+*.user
+*.bin
