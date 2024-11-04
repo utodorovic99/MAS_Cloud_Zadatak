@@ -7,8 +7,8 @@ namespace BookstoreDesktopClient.Commanding
 	/// </summary>
 	internal sealed class RelayCommand : ICommand
 	{
-		private Action<object> execute;
-		private Predicate<object> canExecute;
+		private readonly Action<object> execute;
+		private readonly Predicate<object> canExecute;
 
 		/// <summary>
 		/// Initializes new instance of <see cref="RelayCommand"/>.

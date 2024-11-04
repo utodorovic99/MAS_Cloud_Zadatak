@@ -121,24 +121,65 @@
     <value>Bookstore</value>
     <comment>Application title</comment>
   </data>
-  <data name="BookPurchaseForm_BookTitle_Title" xml:space="preserve">
+  <data name="BookPurchaseForm_BookTitle_TITLE" xml:space="preserve">
     <value>Enter book title: </value>
     <comment>String used in book purchase form to request book title user entry.</comment>
   </data>
-  <data name="BookPurchaseForm_BookTitle_Description" xml:space="preserve">
+  <data name="BookPurchaseForm_BookTitle_DESCRIPTION" xml:space="preserve">
     <value>Name of book title to buy.</value>
     <comment>Additional info about book title entry.</comment>
   </data>
-  <data name="BookPurchaseForm_PuchaseButton_Description" xml:space="preserve">
+  <data name="BookPurchaseForm_PuchaseButton_DESCRIPTION" xml:space="preserve">
     <value>Purchase book title</value>
     <comment>Content of purchase button.</comment>
   </data>
-  <data name="BookPurchaseForm_PuchaseButton_Title" xml:space="preserve">
+  <data name="BookPurchaseForm_PuchaseButton_TITLE" xml:space="preserve">
     <value>Purchase</value>
     <comment>Content of purchase button.</comment>
   </data>
-  <data name="BookPurchaseForm_FormTitle" xml:space="preserve">
+  <data name="BookPurchaseForm_FORM_TITLE" xml:space="preserve">
     <value>Purchase Title</value>
     <comment>Title of book purchasing form</comment>
+  </data>
+  <data name="BookPurchaseResult_SUCCEEDED" xml:space="preserve">
+    <value>Purchase of title {0} succeeded.</value>
+    <comment>Value of message displayed in pop-up dialog indicating successful purchase.</comment>
+  </data>
+  <data name="BookPurchaseResult_INVALID_USER" xml:space="preserve">
+    <value>Invalid username</value>
+    <comment>Value of  readon displayed in pop-up dialog indicating invalid username.</comment>
+  </data>
+  <data name="BookPurchaseResult_FAILED" xml:space="preserve">
+    <value>Purchase of title {0} failed. Reason: {1}.</value>
+    <comment>Value of message displayed in pop-up dialog indicating failed purchase.
+{0} is used as placeholder for title, {1} as placeholder for failure reason.</comment>
+  </data>
+  <data name="BookPurchaseResult_INSUFFICIENT_FUNDS" xml:space="preserve">
+    <value>Insufficient funds</value>
+    <comment>Value of  reason displayed in pop-up dialog indicating user has not enough funds for purchase.</comment>
+  </data>
+  <data name="BookPurchaseResult_UNKNOWN_TITLE" xml:space="preserve">
+    <value>Title does not exists</value>
+    <comment>Value of  reason displayed in pop-up dialog indicating book title does not exists in system.</comment>
+  </data>
+  <data name="BookPurchaseResult_SOLD_OUT" xml:space="preserve">
+    <value>Sold out</value>
+    <comment>Value of  reason displayed in pop-up dialog indicating book title has sold out.</comment>
+  </data>
+  <data name="ResultDialogContent_SUCCESS" xml:space="preserve">
+    <value>Failure</value>
+    <comment>Indicator for failed operation. This indicator is used in multiple dialogs.</comment>
+  </data>
+  <data name="ResultDialogContent_FAILURE" xml:space="preserve">
+    <value>Success</value>
+    <comment>Indicator for success operation. This indicator is used in multiple dialogs.</comment>
+  </data>
+  <data name="BookPurschaseResult_REQUEST_TIMED_OUT" xml:space="preserve">
+    <value>Request timed out</value>
+    <comment>Response from server was not received.</comment>
+  </data>
+  <data name="BookPurschaseResult_REQUEST_FAILED" xml:space="preserve">
+    <value>Request failed</value>
+    <comment>Response from server was not received.</comment>
   </data>
 </root>

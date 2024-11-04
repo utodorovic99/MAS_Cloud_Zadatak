@@ -14,6 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
+	<ProjectReference Include="..\BookstoreModel\BookstoreDataModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
 	<Compile Update="Resources\BookstoreResources.Designer.cs">
 	  <DesignTime>True</DesignTime>
 	  <AutoGen>True</AutoGen>

@@ -5,3 +5,11 @@
 /.vs/MAS_Cloud_Zadatak/DesignTimeBuild
 *.user
 *.bin
+/AzureBookstore/obj
+/AzureBookstore/pkg
+/BookstoreAPI/bin
+/BookstoreAPI/obj
+/packages
+/ValidationService/obj
+/BookstoreModel/obj
+/BookstoreModel/bin

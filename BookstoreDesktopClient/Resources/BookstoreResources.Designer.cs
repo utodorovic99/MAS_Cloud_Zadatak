@@ -72,45 +72,135 @@ namespace BookstoreDesktopClient.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Name of book title to buy..
         /// </summary>
-        public static string BookPurchaseForm_BookTitle_Description {
+        public static string BookPurchaseForm_BookTitle_DESCRIPTION {
             get {
-                return ResourceManager.GetString("BookPurchaseForm_BookTitle_Description", resourceCulture);
+                return ResourceManager.GetString("BookPurchaseForm_BookTitle_DESCRIPTION", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Enter book title: .
         /// </summary>
-        public static string BookPurchaseForm_BookTitle_Title {
+        public static string BookPurchaseForm_BookTitle_TITLE {
             get {
-                return ResourceManager.GetString("BookPurchaseForm_BookTitle_Title", resourceCulture);
+                return ResourceManager.GetString("BookPurchaseForm_BookTitle_TITLE", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Purchase Title.
         /// </summary>
-        public static string BookPurchaseForm_FormTitle {
+        public static string BookPurchaseForm_FORM_TITLE {
             get {
-                return ResourceManager.GetString("BookPurchaseForm_FormTitle", resourceCulture);
+                return ResourceManager.GetString("BookPurchaseForm_FORM_TITLE", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Purchase book title.
         /// </summary>
-        public static string BookPurchaseForm_PuchaseButton_Description {
+        public static string BookPurchaseForm_PuchaseButton_DESCRIPTION {
             get {
-                return ResourceManager.GetString("BookPurchaseForm_PuchaseButton_Description", resourceCulture);
+                return ResourceManager.GetString("BookPurchaseForm_PuchaseButton_DESCRIPTION", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Purchase.
         /// </summary>
-        public static string BookPurchaseForm_PuchaseButton_Title {
+        public static string BookPurchaseForm_PuchaseButton_TITLE {
             get {
-                return ResourceManager.GetString("BookPurchaseForm_PuchaseButton_Title", resourceCulture);
+                return ResourceManager.GetString("BookPurchaseForm_PuchaseButton_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Purchase of title {0} failed. Reason: {1}..
+        /// </summary>
+        public static string BookPurchaseResult_FAILED {
+            get {
+                return ResourceManager.GetString("BookPurchaseResult_FAILED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Insufficient funds.
+        /// </summary>
+        public static string BookPurchaseResult_INSUFFICIENT_FUNDS {
+            get {
+                return ResourceManager.GetString("BookPurchaseResult_INSUFFICIENT_FUNDS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid username.
+        /// </summary>
+        public static string BookPurchaseResult_INVALID_USER {
+            get {
+                return ResourceManager.GetString("BookPurchaseResult_INVALID_USER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sold out.
+        /// </summary>
+        public static string BookPurchaseResult_SOLD_OUT {
+            get {
+                return ResourceManager.GetString("BookPurchaseResult_SOLD_OUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Purchase of title {0} succeeded..
+        /// </summary>
+        public static string BookPurchaseResult_SUCCEEDED {
+            get {
+                return ResourceManager.GetString("BookPurchaseResult_SUCCEEDED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title does not exists.
+        /// </summary>
+        public static string BookPurchaseResult_UNKNOWN_TITLE {
+            get {
+                return ResourceManager.GetString("BookPurchaseResult_UNKNOWN_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Request failed.
+        /// </summary>
+        public static string BookPurschaseResult_REQUEST_FAILED {
+            get {
+                return ResourceManager.GetString("BookPurschaseResult_REQUEST_FAILED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Request timed out.
+        /// </summary>
+        public static string BookPurschaseResult_REQUEST_TIMED_OUT {
+            get {
+                return ResourceManager.GetString("BookPurschaseResult_REQUEST_TIMED_OUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success.
+        /// </summary>
+        public static string ResultDialogContent_FAILURE {
+            get {
+                return ResourceManager.GetString("ResultDialogContent_FAILURE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failure.
+        /// </summary>
+        public static string ResultDialogContent_SUCCESS {
+            get {
+                return ResourceManager.GetString("ResultDialogContent_SUCCESS", resourceCulture);
             }
         }
     }

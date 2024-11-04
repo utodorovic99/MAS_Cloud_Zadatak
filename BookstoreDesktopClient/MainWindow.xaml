@@ -8,6 +8,7 @@
 		xmlns:v="clr-namespace:BookstoreDesktopClient.View"
  		mc:Ignorable="d"
 		Title="Bookstore"
+		WindowStartupLocation="CenterScreen"
 		SizeToContent="WidthAndHeight" Background="#EFBC9B">
 
 	<Window.Resources>

@@ -4,7 +4,8 @@
  			xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
  			xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
  			xmlns:local="clr-namespace:BookstoreDesktopClient.View"
-			xmlns:localization="clr-namespace:BookstoreDesktopClient.Localization">
+			xmlns:localization="clr-namespace:BookstoreDesktopClient.Localization"
+			Loaded="UserControl_Loaded">
 
 	<UserControl.Resources>
 		<ResourceDictionary>
@@ -27,14 +28,18 @@
 			<RowDefinition/>
 		</Grid.RowDefinitions>
 
-		<TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="25" FontWeight="Bold" TextDecorations="Underline" Margin="0,0,0,20" Text="{Binding Path=Resources.BookPurchaseForm_FormTitle, Source={StaticResource LocalizedStrings}}"/>
+		<TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="25" FontWeight="Bold" TextDecorations="Underline" Margin="0,0,0,20" Text="{Binding Path=Resources.BookPurchaseForm_FORM_TITLE, Source={StaticResource LocalizedStrings}}"/>
 
-		<Label Grid.Row="1" Grid.Column="0" Margin="0,0,0,20" Content="{Binding Path=Resources.BookPurchaseForm_BookTitle_Title, Source={StaticResource LocalizedStrings}}" ToolTip="{Binding Path=Resources.BookPurchaseForm_BookTitle_Description, Source={StaticResource LocalizedStrings}}" />
-		<TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,20" Text="{Binding EnteredTitleToPurchase, UpdateSourceTrigger=PropertyChanged}"/>
+		<Label Grid.Row="1" Grid.Column="0" Margin="0,0,0,20" Content="{Binding Path=Resources.BookPurchaseForm_BookTitle_TITLE, Source={StaticResource LocalizedStrings}}" ToolTip="{Binding Path=Resources.BookPurchaseForm_BookTitle_DESCRIPTION, Source={StaticResource LocalizedStrings}}" />
+		<TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,20" Text="{Binding EnteredTitleToPurchase, UpdateSourceTrigger=PropertyChanged}">
+			<TextBox.InputBindings>
+				<KeyBinding Key="Enter" Command="{Binding Path=PurchaseTitleCommand}"/>
+			</TextBox.InputBindings>
+		</TextBox>
 
 		<Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-			<Button Grid.ColumnSpan="2" Content="{Binding Path=Resources.BookPurchaseForm_PuchaseButton_Title, Source={StaticResource LocalizedStrings}}" ToolTip="{Binding Path=Resources.BookPurchaseForm_PuchaseButton_Description, Source={StaticResource LocalizedStrings}}"
-					 Command="{Binding Path=PurchaseTitleCommand}"/>
+			<Button Grid.ColumnSpan="2" Content="{Binding Path=Resources.BookPurchaseForm_PuchaseButton_TITLE, Source={StaticResource LocalizedStrings}}" ToolTip="{Binding Path=Resources.BookPurchaseForm_PuchaseButton_DESCRIPTION, Source={StaticResource LocalizedStrings}}"
+					Command="{Binding Path=PurchaseTitleCommand}"/>
 		</Grid>
 
 	</Grid>
