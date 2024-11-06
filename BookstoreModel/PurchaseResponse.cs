@@ -1,4 +1,4 @@
-﻿namespace BookstoreDataModel
+﻿namespace PurchaseDataModel
 {
 	/// <summary>
 	/// Class representing purchase response.

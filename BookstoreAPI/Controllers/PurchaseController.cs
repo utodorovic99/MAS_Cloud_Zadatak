@@ -1,5 +1,6 @@
-using BookstoreDataModel;
 using Microsoft.AspNetCore.Mvc;
+using PurchaseDataModel;
+using ValidationDataModel;
 
 namespace BookstoreAPI.Controllers
 {
@@ -11,6 +12,7 @@ namespace BookstoreAPI.Controllers
 	public class PurchaseController : ControllerBase
 	{
 		private readonly ILogger<PurchaseController> logger;
+		private readonly IValidationServiceProxy validationServiceProxy;
 
 		/// <summary>
 		/// Initializes new instance of <see cref=PurchaseController"/>
@@ -19,6 +21,7 @@ namespace BookstoreAPI.Controllers
 		public PurchaseController(ILogger<PurchaseController> logger)
 		{
 			this.logger = logger;
+			validationServiceProxy = new ValidationServiceProxy();
 		}
 
 		/// <summary>
@@ -27,12 +30,18 @@ namespace BookstoreAPI.Controllers
 		/// <param name="purchase">Title purchase.</param>
 		/// <returns>Purchase result.</returns>
 		[HttpPost("PurchaseTitle")]
-		public PurchaseResponse Post(PurchaseRequest purchase)
+		public async Task<PurchaseResponse> Post(PurchaseRequest purchase)
 		{
-			return new PurchaseResponse()
+			PurchaseResponse purchaseResponse = new PurchaseResponse();
+
+			PurchaseValidationResponse validationResponse = await validationServiceProxy.ValidatePurchaseRequest(purchase);
+			if (!validationResponse.ValidityStatus.Equals(PurchaseValidityStatus.Valid))
 			{
-				Status = PurchaseResponseStatus.Success,
-			};
+				purchaseResponse.Status = StatusHelper.ToResponseStatus(validationResponse.ValidityStatus);
+			}
+
+			purchaseResponse.Status = PurchaseResponseStatus.Success;
+			return purchaseResponse;
 		}
 	}
 }

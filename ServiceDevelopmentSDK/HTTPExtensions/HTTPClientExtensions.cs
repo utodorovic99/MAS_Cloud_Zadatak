@@ -1,11 +1,9 @@
-﻿using System.Net.Http;
-
-namespace BookstoreDesktopClient
+﻿namespace CommunicationsSDK.Http
 {
 	/// <summary>
 	/// Extension class for <see cref="HttpClient"/>
 	/// </summary>
-	internal static class HTTPClientExtensions
+	public static class HTTPClientExtensions
 	{
 		/// <summary>
 		/// Initializes HTTP client to have base address of <paramref name="baseAddress"/>.

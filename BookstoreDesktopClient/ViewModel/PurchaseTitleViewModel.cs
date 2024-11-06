@@ -1,6 +1,6 @@
-﻿using BookstoreDataModel;
-using BookstoreDesktopClient.Commanding;
+﻿using BookstoreDesktopClient.Commanding;
 using BookstoreDesktopClient.ServiceProxy;
+using PurchaseDataModel;
 using System.Windows;
 using System.Windows.Input;
 namespace BookstoreDesktopClient.ViewModel

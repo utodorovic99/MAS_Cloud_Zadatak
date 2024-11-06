@@ -1,6 +1,7 @@
-﻿using BookstoreDataModel;
-using BookstoreDesktopClient.Resources;
+﻿using BookstoreDesktopClient.Resources;
 using BookstoreDesktopClient.ViewModel;
+using CommunicationsSDK.Http;
+using PurchaseDataModel;
 using System.Net.Http;
 using System.Net.Http.Json;
 

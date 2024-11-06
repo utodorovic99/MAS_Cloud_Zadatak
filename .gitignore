@@ -13,3 +13,9 @@
 /ValidationService/obj
 /BookstoreModel/obj
 /BookstoreModel/bin
+*.pdb
+/ServiceDevelopmentSDK/obj
+/ValidationDataModel/obj
+/ValidationService/bin
+/ServiceDevelopmentSDK/bin
+*.dll

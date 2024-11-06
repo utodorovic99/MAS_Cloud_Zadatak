@@ -1,4 +1,4 @@
-﻿using BookstoreDataModel;
+﻿using PurchaseDataModel;
 
 namespace BookstoreDesktopClient.ServiceProxy
 {

@@ -1,5 +1,5 @@
-﻿using BookstoreDataModel;
-using BookstoreDesktopClient.Resources;
+﻿using BookstoreDesktopClient.Resources;
+using PurchaseDataModel;
 
 namespace BookstoreDesktopClient
 {
@@ -15,7 +15,8 @@ namespace BookstoreDesktopClient
 		/// </summary>
 		static PurchaseRequestStatusExtension()
 		{
-			responseStatusToLocalizedString = new Dictionary<PurchaseResponseStatus, string>(5);
+			responseStatusToLocalizedString = new Dictionary<PurchaseResponseStatus, string>(6);
+			responseStatusToLocalizedString[PurchaseResponseStatus.Fail] = BookstoreResources.BookPurschaseResult_REQUEST_FAILED;
 			responseStatusToLocalizedString[PurchaseResponseStatus.Success] = BookstoreResources.ResultDialogContent_SUCCESS;
 			responseStatusToLocalizedString[PurchaseResponseStatus.InvalidUser] = BookstoreResources.BookPurchaseResult_INVALID_USER;
 			responseStatusToLocalizedString[PurchaseResponseStatus.InsufficientFunds] = BookstoreResources.BookPurchaseResult_INSUFFICIENT_FUNDS;

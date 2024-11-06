@@ -1,4 +1,4 @@
-﻿namespace BookstoreDataModel
+﻿namespace PurchaseDataModel
 {
 	/// <summary>
 	/// Model class representing single title purchase request.

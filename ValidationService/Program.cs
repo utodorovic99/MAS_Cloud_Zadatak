@@ -1,12 +1,10 @@
 using Microsoft.ServiceFabric.Services.Runtime;
 using System.Diagnostics;
 
-namespace BookstoreAPI
+namespace ValidationService
 {
 	internal static class Program
 	{
-		public static Configuration Configuration { get; private set; } = new Configuration();
-
 		/// <summary>
 		/// This is the entry point of the service host process.
 		/// </summary>
@@ -19,14 +17,12 @@ namespace BookstoreAPI
 				// When Service Fabric creates an instance of this service type,
 				// an instance of the class is created in this host process.
 
-				Configuration.Initialize();
+				ServiceRuntime.RegisterServiceAsync("ValidationServiceType",
+					context => new ValidationService(context)).GetAwaiter().GetResult();
 
-				ServiceRuntime.RegisterServiceAsync("BookstoreAPIType",
-					context => new BookstoreAPI(context)).GetAwaiter().GetResult();
+				ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(ValidationService).Name);
 
-				ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(BookstoreAPI).Name);
-
-				// Prevents this host process from terminating so services keeps running.
+				// Prevents this host process from terminating so services keep running.
 				Thread.Sleep(Timeout.Infinite);
 			}
 			catch (Exception e)

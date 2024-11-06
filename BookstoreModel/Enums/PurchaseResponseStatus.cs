@@ -1,10 +1,15 @@
-﻿namespace BookstoreDataModel
+﻿namespace PurchaseDataModel
 {
 	/// <summary>
 	/// Enumeration for title purchase response status.
 	/// </summary>
 	public enum PurchaseResponseStatus : short
 	{
+		/// <summary>
+		/// Internal failure.
+		/// </summary>
+		Fail = -1,
+
 		/// <summary>
 		/// Purchase succeeded.
 		/// </summary>
