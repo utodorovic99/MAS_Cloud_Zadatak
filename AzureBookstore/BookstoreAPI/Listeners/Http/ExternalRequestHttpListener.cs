@@ -22,15 +22,16 @@ namespace BookstoreAPI.Listeners.Http
 		private HttpRequestProcessor requestProcessor;
 
 		/// <summary>
-		/// Initializes new instance of <see cref="BaseServiceHttpListener"/>.
+		/// Initializes new instance of <see cref="ExternalRequestHTTPListener"/>.
 		/// </summary>
 		/// <param name="endpoint">Endpoint on which listener will listen.</param>
-		public ExternalRequestHTTPListener(EndpointResourceDescription endpoint)
+		/// <param name="proxyProvider">Provider of service proxies.</param>
+		public ExternalRequestHTTPListener(EndpointResourceDescription endpoint, IServiceProxyProvider proxyProvider)
 		{
 			listeningBaseUri = CreateListeningUriFromManifest(endpoint);
 
 			controllerResolver = new ControllerResolver();
-			RegisterRequestControllers();
+			RegisterRequestControllers(proxyProvider);
 
 			requestProcessor = new HttpRequestProcessor(controllerResolver);
 		}
@@ -108,6 +109,12 @@ namespace BookstoreAPI.Listeners.Http
 		/// <remarks>When request is received, waiting for new request is started automatically.</remarks>
 		private void ListenerCallback(IAsyncResult listeningResult)
 		{
+			if (httpListener == null)
+			{
+				//Disposing guard.
+				return;
+			}
+
 			if (httpListener.IsListening)
 			{
 				HttpListenerContext context = httpListener.EndGetContext(listeningResult);
@@ -120,9 +127,10 @@ namespace BookstoreAPI.Listeners.Http
 		/// <summary>
 		/// Registers request controllers.
 		/// </summary>
-		private void RegisterRequestControllers()
+		/// <param name="proxyProvider">Provider of service proxies.</param>
+		private void RegisterRequestControllers(IServiceProxyProvider proxyProvider)
 		{
-			controllerResolver.RegisterController(new TitleController());
+			controllerResolver.RegisterController(new TitleController(proxyProvider));
 		}
 
 		/// <summary>

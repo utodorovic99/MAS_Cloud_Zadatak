@@ -1,6 +1,5 @@
-﻿using BookstoreAPI.FabricClients;
-using BookstoreAPI.Listeners;
-using BookstoreServiceContracts.Model;
+﻿using BookstoreAPI.Listeners;
+using BookstoreServiceContracts.Contracts;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 using System;
@@ -33,7 +32,11 @@ namespace BookstoreAPI
 		protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 		{
 			IEnumerable<EndpointResourceDescription> endpoints = this.Context.CodePackageActivationContext.GetEndpoints();
-			return ListenerFactory.CreateFor(endpoints);
+
+			ServiceProxyManager proxyManager = new ServiceProxyManager();
+			CreateServiceProxies(proxyManager);
+
+			return ListenerFactory.CreateFor(endpoints, proxyManager);
 		}
 
 		/// <summary>
@@ -51,33 +54,12 @@ namespace BookstoreAPI
 		}
 
 		/// <summary>
-		/// Gets all titles.
+		/// Creates service proxies required by the service.
 		/// </summary>
-		/// <param name="purchase"></param>
-		/// <returns>Task with collection of titles known by the bookstore.</returns>
-		public async Task<IEnumerable<BookstoreTitle>> GetAllTitles()
+		/// <param name="proxyManager">Service proxy manager.</param>
+		private void CreateServiceProxies(ServiceProxyManager proxyManager)
 		{
-			BookstoreFabricClient fabricClient = new BookstoreFabricClient();
-			return await fabricClient.GetAllTitles();
+			proxyManager.CreateProxiesFor(typeof(IBookstoreServiceContract), Program.Configuration.BookstoreServiceUri);
 		}
-
-		///// <summary>
-		///// Request handler for purchase of book titles.
-		///// </summary>
-		///// <param name="purchase">Title purchase.</param>
-		///// <returns>Purchase result.</returns>
-		//public async Task<PurchaseResponse> PurchaseTitle(PurchaseRequest purchase)
-		//{
-		//	PurchaseResponse purchaseResponse = new PurchaseResponse();
-
-		//	PurchaseValidationResponse validationResponse = await validationServiceProxy.ValidatePurchaseRequest(purchase);
-		//	if (!validationResponse.ValidityStatus.Equals(PurchaseValidityStatus.Valid))
-		//	{
-		//		purchaseResponse.Status = StatusHelper.ToResponseStatus(validationResponse.ValidityStatus);
-		//	}
-
-		//	purchaseResponse.Status = PurchaseResponseStatus.Success;
-		//	return purchaseResponse;
-		//}
 	}
 }

@@ -16,7 +16,7 @@
 		</ResourceDictionary>
 	</UserControl.Resources>
 
-	<Grid VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,20,20,20">
+	<Grid VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,20,20,20" Width="500" >
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition />
 			<ColumnDefinition/>
@@ -26,18 +26,27 @@
 			<RowDefinition/>
 			<RowDefinition/>
 			<RowDefinition/>
+			<RowDefinition/>
 		</Grid.RowDefinitions>
 
 		<TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="25" FontWeight="Bold" TextDecorations="Underline" Margin="0,0,0,20" Text="{Binding Path=Resources.BookPurchaseForm_FORM_TITLE, Source={StaticResource LocalizedStrings}}"/>
 
-		<Label Grid.Row="1" Grid.Column="0" Margin="0,0,0,20" Content="{Binding Path=Resources.BookPurchaseForm_BookTitle_TITLE, Source={StaticResource LocalizedStrings}}" ToolTip="{Binding Path=Resources.BookPurchaseForm_BookTitle_DESCRIPTION, Source={StaticResource LocalizedStrings}}" />
-		<TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,20" Text="{Binding EnteredTitleToPurchase, UpdateSourceTrigger=PropertyChanged}">
+		<Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="0,0,-10,0">
+			<DataGrid ItemsSource="{Binding BookstoreTitles}" SelectedItem="{Binding SelectedTitle, Mode=TwoWay}" AutoGenerateColumns="False" Margin="10">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="Title Name" Binding="{Binding Name}" Width="*"/>
+				</DataGrid.Columns>
+			</DataGrid>
+		</Grid>
+
+		<Label Grid.Row="2" Grid.Column="0" Margin="0,0,0,20" Content="{Binding Path=Resources.BookPurchaseForm_BookTitle_TITLE, Source={StaticResource LocalizedStrings}}" ToolTip="{Binding Path=Resources.BookPurchaseForm_BookTitle_DESCRIPTION, Source={StaticResource LocalizedStrings}}" />
+		<TextBox Grid.Row="2" Grid.Column="1" Margin="0,0,0,20" Text="{Binding EnteredTitleToPurchase, UpdateSourceTrigger=PropertyChanged}">
 			<TextBox.InputBindings>
 				<KeyBinding Key="Enter" Command="{Binding Path=PurchaseTitleCommand}"/>
 			</TextBox.InputBindings>
 		</TextBox>
 
-		<Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+		<Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
 			<Button Grid.ColumnSpan="2" Content="{Binding Path=Resources.BookPurchaseForm_PuchaseButton_TITLE, Source={StaticResource LocalizedStrings}}" ToolTip="{Binding Path=Resources.BookPurchaseForm_PuchaseButton_DESCRIPTION, Source={StaticResource LocalizedStrings}}"
 					Command="{Binding Path=PurchaseTitleCommand}"/>
 		</Grid>

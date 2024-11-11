@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunicationsSDK", "Commun
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationDataModel", "ValidationDataModel\ValidationDataModel.csproj", "{5312B097-EC9C-4926-8432-FFA46B566AE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookstoreService", "BookstoreService\BookstoreService.csproj", "{45D12451-665E-4E09-AF84-B1F69DFDB026}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,14 @@ Global
 		{5312B097-EC9C-4926-8432-FFA46B566AE1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5312B097-EC9C-4926-8432-FFA46B566AE1}.Release|x64.ActiveCfg = Release|Any CPU
 		{5312B097-EC9C-4926-8432-FFA46B566AE1}.Release|x64.Build.0 = Release|Any CPU
+		{45D12451-665E-4E09-AF84-B1F69DFDB026}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{45D12451-665E-4E09-AF84-B1F69DFDB026}.Debug|Any CPU.Build.0 = Debug|x64
+		{45D12451-665E-4E09-AF84-B1F69DFDB026}.Debug|x64.ActiveCfg = Debug|x64
+		{45D12451-665E-4E09-AF84-B1F69DFDB026}.Debug|x64.Build.0 = Debug|x64
+		{45D12451-665E-4E09-AF84-B1F69DFDB026}.Release|Any CPU.ActiveCfg = Release|x64
+		{45D12451-665E-4E09-AF84-B1F69DFDB026}.Release|Any CPU.Build.0 = Release|x64
+		{45D12451-665E-4E09-AF84-B1F69DFDB026}.Release|x64.ActiveCfg = Release|x64
+		{45D12451-665E-4E09-AF84-B1F69DFDB026}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

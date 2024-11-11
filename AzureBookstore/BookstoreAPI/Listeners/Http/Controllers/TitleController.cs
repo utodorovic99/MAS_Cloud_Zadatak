@@ -1,8 +1,10 @@
-﻿using BookstoreServiceContracts.Model;
+﻿using BookstoreServiceContracts.Contracts;
+using BookstoreServiceContracts.Model;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http.Json;
+using System.Threading;
 using ValidationDataModel;
 
 namespace BookstoreAPI.Listeners.Controllers
@@ -13,13 +15,19 @@ namespace BookstoreAPI.Listeners.Controllers
 	internal sealed class TitleController : IHttpController
 	{
 		private const string ControllerName = "Title";
-		private static readonly Dictionary<string, Action<HttpListenerContext>> processingRoutinsByRequestIdentifier;
+		private const int MaxWaitTimeoutMs = 5000;
+
+		private readonly Dictionary<string, Action<HttpListenerContext>> processingRoutinsByRequestIdentifier;
+		private readonly IServiceProxyProvider proxyProvider;
 
 		/// <summary>
-		/// Static initialization of <see cref="TitleController"/>
+		/// Initializes title controller.
 		/// </summary>
-		static TitleController()
+		/// <param name="proxyProvider">Service proxy provider.</param>
+		public TitleController(IServiceProxyProvider proxyProvider)
 		{
+			this.proxyProvider = proxyProvider;
+
 			processingRoutinsByRequestIdentifier = new Dictionary<string, Action<HttpListenerContext>>(2);
 			processingRoutinsByRequestIdentifier[$"/{ControllerName}/PurchaseTitle/"] = ProcessPurchaseTitle;
 			processingRoutinsByRequestIdentifier[$"/{ControllerName}/GetAll/"] = ProcessGetAllTitles;
@@ -52,44 +60,40 @@ namespace BookstoreAPI.Listeners.Controllers
 			}
 		}
 
-		/// <summary>
-		/// Processes get all titles request.
-		/// </summary>
-		/// <param name="context">Listener context.</param>
-		private static void ProcessGetAllTitles(HttpListenerContext context)
+		private async void ProcessGetAllTitles(HttpListenerContext context)
 		{
-			ProcessRequestSafely(context, (ctx) =>
+			try
 			{
-				var response = context.Response;
-				response.StatusCode = (int)HttpStatusCode.OK;
-				response.ContentType = "application/json";
+				IBookstoreServiceContract serviceProxy = (IBookstoreServiceContract)proxyProvider.GetProxyFor(typeof(IBookstoreServiceContract));
 
-				//TODO: Retrieve from internal service
-				IEnumerable<BookstoreTitle> allTitles = new List<BookstoreTitle>(2)
-			{
-				new BookstoreTitle("Jezeva Kucica, Branko Copic"),
-				new BookstoreTitle("Luca Mikrokozma, Petar Petrovic Njegos"),
-			};
+				SheduleWaitCancellation(out CancellationTokenSource cts);
+				IEnumerable<BookstoreTitle> allTitles = await serviceProxy.GetAllTitles();
 
 				JsonContent getAllTitlesResponseContent = JsonContent.Create(allTitles);
 				byte[] validationResponseContentRaw = getAllTitlesResponseContent.ReadAsByteArrayAsync().Result;
 
+				var response = context.Response;
+				response.StatusCode = (int)HttpStatusCode.OK;
+				response.ContentType = "application/json";
+
 				response.OutputStream.Write(validationResponseContentRaw, 0, validationResponseContentRaw.Length);
 				response.OutputStream.Close();
-			});
+			}
+			catch (Exception e)
+			{
+				SubmitResposeAsFailure(context, HttpStatusCode.InternalServerError);
+			}
 		}
 
 		/// <summary>
 		/// Processes validation request.
 		/// </summary>
 		/// <param name="context">Listener context.</param>
-		private static void ProcessPurchaseTitle(HttpListenerContext context)
+		private async void ProcessPurchaseTitle(HttpListenerContext context)
 		{
-			ProcessRequestSafely(context, (ctx) =>
+			try
 			{
 				var response = context.Response;
-				response.StatusCode = (int)HttpStatusCode.OK;
-				response.ContentType = "application/json";
 
 				PurchaseValidationResponse validationResponse = new PurchaseValidationResponse()
 				{
@@ -99,27 +103,38 @@ namespace BookstoreAPI.Listeners.Controllers
 				JsonContent validationResponseContent = JsonContent.Create(validationResponse);
 				byte[] validationResponseContentRaw = validationResponseContent.ReadAsByteArrayAsync().Result;
 
+				response.StatusCode = (int)HttpStatusCode.OK;
+				response.ContentType = "application/json";
+
 				response.OutputStream.Write(validationResponseContentRaw, 0, 0);
 				response.OutputStream.Close();
-			});
+			}
+			catch (Exception e)
+			{
+				SubmitResposeAsFailure(context, HttpStatusCode.InternalServerError);
+			}
 		}
 
 		/// <summary>
-		/// Processes request safely.
+		/// This method schedules auto-cancellation which will abort following awaits after configured time exceeds.
 		/// </summary>
-		/// <param name="context">Listener context.</param>
-		/// <param name="handler">Handling routine.</param>
-		private static void ProcessRequestSafely(HttpListenerContext context, Action<HttpListenerContext> handler)
+		/// <param name="cts">Resulting cancellation token source.</param>
+		private void SheduleWaitCancellation(out CancellationTokenSource cts)
 		{
-			try
-			{
-				handler.Invoke(context);
-			}
-			catch
-			{
-				var response = context.Response;
-				response.StatusCode = (int)HttpStatusCode.InternalServerError;
-			}
+			cts = new CancellationTokenSource();
+			cts.CancelAfter(MaxWaitTimeoutMs);
+		}
+
+		/// <summary>
+		/// Submits <paramref name="context"/> as ailed with <paramref name="failureCode"/>.
+		/// </summary>
+		/// <<param name="context">Listener context.</param>
+		/// <param name="failureCode">Failure code.</param>
+		private void SubmitResposeAsFailure(HttpListenerContext context, HttpStatusCode failureCode)
+		{
+			var response = context.Response;
+			response.StatusCode = (int)failureCode;
+			response.OutputStream.Close();
 		}
 	}
 }

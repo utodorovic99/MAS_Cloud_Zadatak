@@ -17,7 +17,7 @@ namespace BookstoreDesktopClient.ServiceProxy
 	/// </summary>
 	internal sealed class BookstoreServiceProxy : IBookstoreServiceProxy
 	{
-		private const int MaxResponseTimeoutMs = 5000;
+		private const int MaxResponseTimeoutMs = 10000;
 		private readonly HttpClient bokstoreServiceHttpClient;
 
 		private event PurchaseResponseReceived purchaseReceivedEvent;
@@ -84,48 +84,23 @@ namespace BookstoreDesktopClient.ServiceProxy
 				{
 					PublishFailureResponseFor(purchaseRequest.Title);
 				}
-
-			}, TaskContinuationOptions.OnlyOnFaulted);
+			}, TaskContinuationOptions.OnlyOnFaulted | TaskContinuationOptions.OnlyOnCanceled);
 		}
 
 		/// <inheritdoc/>
-		public Task<IEnumerable<BookstoreTitle>> GetAllTitles()
+		public async Task<IEnumerable<BookstoreTitle>> GetAllTitles()
 		{
 			CancellationToken cancellationToken = new CancellationTokenSource(MaxResponseTimeoutMs).Token;
-			return GetAllTitles(cancellationToken);
-		}
 
-		/// <inheritdoc/>
-		public Task<IEnumerable<BookstoreTitle>> GetAllTitles(CancellationToken cancellationToken)
-		{
-			return Task.Factory.StartNew(() =>
+			string requestName = "Title/GetAll/";
+			HttpResponseMessage httpResponseMessage = await bokstoreServiceHttpClient.GetAsync(requestName, cancellationToken);
+
+			if (!httpResponseMessage.IsSuccessStatusCode)
 			{
-				string requestName = "Title/GetAll/";
-				Task<HttpResponseMessage> httpResponseTask = bokstoreServiceHttpClient.GetAsync(requestName, cancellationToken);
+				return Enumerable.Empty<BookstoreTitle>();
+			}
 
-				httpResponseTask.Wait(cancellationToken);//Token is timed so it will not stuck forever
-
-				HttpResponseMessage httpResponseMessage = httpResponseTask.Result;
-				if (!httpResponseMessage.IsSuccessStatusCode)
-				{
-					return Enumerable.Empty<BookstoreTitle>();
-				}
-
-				Task<IEnumerable<BookstoreTitle>> conversionTask = httpResponseMessage.Content.ReadFromJsonAsync<IEnumerable<BookstoreTitle>>(cancellationToken);
-				conversionTask.Wait(cancellationToken);
-
-				return conversionTask.Result;
-
-			}, cancellationToken)
-			.ContinueWith(t =>
-			{
-				t.Exception?.Handle(ex =>
-				{
-					return true;
-				});
-
-				return Enumerable.Empty<BookstoreTitle>(); //Empty collection is good enough indicator that something failed.
-			}, TaskContinuationOptions.OnlyOnFaulted);
+			return await httpResponseMessage.Content.ReadFromJsonAsync<IEnumerable<BookstoreTitle>>(cancellationToken);
 		}
 
 		/// <summary>

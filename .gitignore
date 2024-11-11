@@ -31,3 +31,5 @@
 *.cache
 /AzureBookstore/PurchaseDataModel/obj
 /AzureBookstore/ValidationDataModel/obj
+/AzureBookstore/.vs
+/AzureBookstore/BookstoreService/bin

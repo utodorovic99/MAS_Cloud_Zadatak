@@ -1,8 +1,11 @@
-﻿namespace BookstoreServiceContracts.Model
+﻿using System.Runtime.Serialization;
+
+namespace BookstoreServiceContracts.Model
 {
 	/// <summary>
 	/// Represents single title from bookstore.
 	/// </summary>
+	[DataContract]
 	public sealed class BookstoreTitle
 	{
 		/// <summary>
@@ -17,6 +20,7 @@
 		/// <summary>
 		/// Gets or sets <strong>unique</strong> bookstore title name used as its identifier.
 		/// </summary>
+		[DataMember]
 		public string Name { get; set; }
 	}
 }

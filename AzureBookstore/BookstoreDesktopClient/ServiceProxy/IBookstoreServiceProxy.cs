@@ -2,7 +2,6 @@
 using PurchaseDataModel;
 using System;
 using System.Collections.Generic;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace BookstoreDesktopClient.ServiceProxy
@@ -24,19 +23,9 @@ namespace BookstoreDesktopClient.ServiceProxy
 		void SendPurchaseRequest(PurchaseRequest purchaseRequest);
 
 		/// <summary>
-		/// Send request which retrieves all known bookstore titles.
+		/// Gets all known bookstore titles.
 		/// </summary>
 		/// <returns>Task resulting with set of all known bookstore titles.</returns>
-		/// <remarks>
-		/// Routine is automatically canceled after predefined period of time.
-		/// </remarks>
 		Task<IEnumerable<BookstoreTitle>> GetAllTitles();
-
-		/// <summary>
-		/// Send request which retrieves all known bookstore titles.
-		/// </summary>
-		/// <param name="ct">Cancellation token.</param>
-		/// <returns>Task resulting with set of all known bookstore titles.</returns>
-		Task<IEnumerable<BookstoreTitle>> GetAllTitles(CancellationToken ct);
 	}
 }

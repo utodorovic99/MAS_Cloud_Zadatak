@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace BookstoreAPI.Listeners
 {
 	/// <summary>
-	/// Base class implementing queue consummer pattern of processing.
+	/// Base class implementing queue consumer pattern of processing.
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
 	internal abstract class BaseRequestProcessor<T> : IDisposable
@@ -61,7 +61,7 @@ namespace BookstoreAPI.Listeners
 					{
 						return true;
 					});
-				}, TaskContinuationOptions.OnlyOnFaulted);
+				}, TaskContinuationOptions.NotOnRanToCompletion);
 			}
 		}
 

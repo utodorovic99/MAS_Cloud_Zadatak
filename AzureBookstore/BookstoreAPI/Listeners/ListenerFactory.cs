@@ -14,8 +14,9 @@ namespace BookstoreAPI.Listeners
 		/// Creates <see cref="ServiceInstanceListener"/> for each one of <paramref name="endpoints"/>.
 		/// </summary>
 		/// <param name="endpoints">Set of endpoints for which listeners will be created.</param>
+		/// <param name="proxyProvider">Service proxy provider used to initialize listeners in case they communicate with service inside cluster.</param>
 		/// <returns>Collection of <see cref="ServiceInstanceListener"/> for provided <paramref name="endpoints"/>.</returns>
-		public static IEnumerable<ServiceInstanceListener> CreateFor(IEnumerable<EndpointResourceDescription> endpoints)
+		public static IEnumerable<ServiceInstanceListener> CreateFor(IEnumerable<EndpointResourceDescription> endpoints, IServiceProxyProvider proxyProvider)
 		{
 			foreach (EndpointResourceDescription endpoint in endpoints)
 			{
@@ -25,7 +26,7 @@ namespace BookstoreAPI.Listeners
 						if (endpoint.Protocol.Equals(EndpointProtocol.Http)
 							|| endpoint.Protocol.Equals(EndpointProtocol.Https))
 						{
-							yield return new ServiceInstanceListener(serviceContext => new ExternalRequestHTTPListener(endpoint));
+							yield return new ServiceInstanceListener(serviceContext => new ExternalRequestHTTPListener(endpoint, proxyProvider));
 						}
 
 						break;
