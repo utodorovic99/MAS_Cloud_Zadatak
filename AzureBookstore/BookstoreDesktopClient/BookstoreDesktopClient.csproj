@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<OutputType>WinExe</OutputType>
+	<TargetFramework>net48</TargetFramework>
+	<Nullable>disable</Nullable>
+	<UseWPF>true</UseWPF>
+	<ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<Content Include="icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<PackageReference Include="System.Net.Http.Json" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<ProjectReference Include="..\BookstoreServiceContracts\BookstoreServiceContracts.csproj" />
+	<ProjectReference Include="..\CommunicationsSDK\CommunicationsSDK.csproj" />
+	<ProjectReference Include="..\PurchaseDataModel\PurchaseDataModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Reference Include="System.Configuration" />
+	<Reference Include="System.Net.Http" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Compile Update="Resources\BookstoreResources.Designer.cs">
+	  <DesignTime>True</DesignTime>
+	  <AutoGen>True</AutoGen>
+	  <DependentUpon>BookstoreResources.resx</DependentUpon>
+	</Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+	<EmbeddedResource Update="Resources\BookstoreResources.resx">
+	  <Generator>PublicResXFileCodeGenerator</Generator>
+	  <LastGenOutput>BookstoreResources.Designer.cs</LastGenOutput>
+	</EmbeddedResource>
+  </ItemGroup>
+
+</Project>

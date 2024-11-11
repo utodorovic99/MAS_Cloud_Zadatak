@@ -19,3 +19,15 @@
 /ValidationService/bin
 /ServiceDevelopmentSDK/bin
 *.dll
+*.vsidx
+/AzureBookstore/.vs/MAS_Cloud_Zadatak/v17
+/AzureBookstore/AzureBookstore/pkg
+/AzureBookstore/BookstoreAPI/bin
+/AzureBookstore/BookstoreAPI/obj
+/AzureBookstore/BookstoreDesktopClient/obj
+/AzureBookstore/BookstoreServiceContracts/obj
+/AzureBookstore/CommunicationsSDK/obj
+/AzureBookstore/packages
+*.cache
+/AzureBookstore/PurchaseDataModel/obj
+/AzureBookstore/ValidationDataModel/obj
