@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+	<ProjectReference Include="..\BookstoreServiceContracts\BookstoreServiceContract.csproj" />
 	<ProjectReference Include="..\BookstoreServiceContracts\BookstoreServiceContracts.csproj" />
 	<ProjectReference Include="..\CommunicationsSDK\CommunicationsSDK.csproj" />
 	<ProjectReference Include="..\PurchaseDataModel\PurchaseDataModel.csproj" />

@@ -38,6 +38,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BookstoreAPI\BookstoreAPI.csproj" />
     <ProjectReference Include="..\BookstoreService\BookstoreService.csproj" />
+    <ProjectReference Include="..\UsersService\UsersService.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
   <PropertyGroup>

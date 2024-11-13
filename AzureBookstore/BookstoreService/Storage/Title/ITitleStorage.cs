@@ -1,4 +1,5 @@
-﻿using BookstoreServiceContracts.Model;
+﻿using BookstoreServiceContract.Model;
+using StorageManagement;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

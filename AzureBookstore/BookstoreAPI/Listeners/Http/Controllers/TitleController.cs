@@ -1,5 +1,5 @@
-﻿using BookstoreServiceContracts.Contracts;
-using BookstoreServiceContracts.Model;
+﻿using BookstoreServiceContract.Contracts;
+using BookstoreServiceContract.Model;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -60,6 +60,10 @@ namespace BookstoreAPI.Listeners.Controllers
 			}
 		}
 
+		/// <summary>
+		/// Processes request for getting all titles.
+		/// </summary>
+		/// <param name="context">Listener context.</param>
 		private async void ProcessGetAllTitles(HttpListenerContext context)
 		{
 			try
@@ -89,7 +93,7 @@ namespace BookstoreAPI.Listeners.Controllers
 		/// Processes validation request.
 		/// </summary>
 		/// <param name="context">Listener context.</param>
-		private async void ProcessPurchaseTitle(HttpListenerContext context)
+		private void ProcessPurchaseTitle(HttpListenerContext context)
 		{
 			try
 			{

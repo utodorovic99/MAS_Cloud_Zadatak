@@ -1,4 +1,4 @@
-﻿using BookstoreServiceContracts.Contracts;
+﻿using BookstoreServiceContract.Contracts;
 using Microsoft.ServiceFabric.Services.Client;
 using Microsoft.ServiceFabric.Services.Communication.Client;
 using Microsoft.ServiceFabric.Services.Remoting;

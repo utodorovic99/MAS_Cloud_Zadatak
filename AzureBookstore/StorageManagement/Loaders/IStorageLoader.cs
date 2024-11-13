@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BookstoreService.Storage
+namespace StorageManagement
 {
 	/// <summary>
-	/// Interface for storage loaders.
+	/// Interface for storage loader.
 	/// </summary>
-	/// <typeparam name="T">Type of object which are loaded.</typeparam>
-	internal interface IStorageLoader<T> : IDisposable
+	/// <typeparam name="T">Type of objects which are loaded.</typeparam>
+	public interface IStorageLoader<T> : IDisposable
 	{
 		/// <summary>
 		/// Gets loaded data.

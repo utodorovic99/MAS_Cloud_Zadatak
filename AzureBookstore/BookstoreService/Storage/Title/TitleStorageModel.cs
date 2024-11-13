@@ -42,5 +42,11 @@ namespace BookstoreService.Storage.Title
 		/// </summary>
 		[DataMember]
 		public uint Copies { get; set; }
+
+		/// <summary>
+		/// Gets or sets price per unit.
+		/// </summary>
+		[DataMember]
+		public float Price { get; set; }
 	}
 }

@@ -1,16 +1,15 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace BookstoreService.Storage
+namespace StorageManagement
 {
 	/// <summary>
 	/// Storage loader for <typeparamref name="T"/> type of data stored inside JSON file.
 	/// </summary>
 	/// <typeparam name="T">Type of objects stored inside storage.</typeparam>
-	internal sealed class JSONStorageLoader<T>
+	public sealed class JSONStorageLoader<T>
 		: IStorageLoader<T> where T : class
 	{
 		private string storageDataFileName;
@@ -41,26 +40,30 @@ namespace BookstoreService.Storage
 			};
 		}
 
+		/// <inheritdoc/>
+		public void Dispose()
+		{
+			loadedData = Enumerable.Empty<T>();
+		}
+
 		/// <summary>
 		/// Tries to read storage from JSON file.
 		/// </summary>
-		/// <param name="fileName">Name of JSON file to load.</param>
+		/// <param name="fullFileName">Full name of JSON file to load.</param>
 		/// <param name="jsonContent">Loaded JSON content.</param>
 		/// <returns><c>True</c> if storage is successfully loaded; otherwise returns <c>false</c>.</returns>
-		private bool TryReadStorageFile(string fileName, out string jsonContent)
+		private bool TryReadStorageFile(string fullFileName, out string jsonContent)
 		{
 			jsonContent = string.Empty;
 
-			string fullPath = Path.Combine(Environment.CurrentDirectory, $"PackageRoot\\AdditionalFiles\\{fileName}");
-
-			if (!File.Exists(fullPath))
+			if (!File.Exists(fullFileName))
 			{
 				return false;
 			}
 
 			try
 			{
-				jsonContent = File.ReadAllText(fullPath);
+				jsonContent = File.ReadAllText(fullFileName);
 			}
 			catch
 			{
@@ -91,12 +94,6 @@ namespace BookstoreService.Storage
 				deserializedData = Enumerable.Empty<T>();
 				return false;
 			}
-		}
-
-		/// <inheritdoc/>
-		public void Dispose()
-		{
-			loadedData = Enumerable.Empty<T>();
 		}
 	}
 }

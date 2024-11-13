@@ -1,7 +1,7 @@
 ﻿using BookstoreDesktopClient.Commanding;
 using BookstoreDesktopClient.Helpers;
 using BookstoreDesktopClient.ServiceProxy;
-using BookstoreServiceContracts.Model;
+using BookstoreServiceContract.Model;
 using PurchaseDataModel;
 using System;
 using System.Collections.Generic;
@@ -64,6 +64,7 @@ namespace BookstoreDesktopClient.ViewModel
 			{
 				return selectedTitle;
 			}
+
 			set
 			{
 				selectedTitle = value;
@@ -108,7 +109,7 @@ namespace BookstoreDesktopClient.ViewModel
 		/// <summary>
 		/// Handler for situations when purchase response is received.
 		/// </summary>
-		/// <param name="purchaseResponse"></param>
+		/// <param name="purchaseResponse">Purchase response.</param>
 		public void PurchaseResponseReceivedEventHandler(PurchaseResponseWrapper purchaseResponse)
 		{
 			MessageBoxHelper.DisplayFor(ParentWindow, purchaseResponse);

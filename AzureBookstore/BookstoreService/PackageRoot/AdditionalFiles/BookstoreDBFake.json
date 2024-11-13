@@ -1,22 +1,27 @@
 [
   {
 	"Name": "Jezeva Kucica, Branko Copic",
-	"Copies": "11"
+	"Copies": "11",
+	"Price": "20.30"
   },
   {
 	"Name": "Gorski Vijenac, Petar Petrovic Njegos",
-	"Copies": "5"
+	"Copies": "5",
+	"Price": "25.00"
   },
   {
 	"Name": "Luca Mikrokozma, Petar Petrovic Njegos",
-	"Copies": "3"
+	"Copies": "3",
+	"Price": "40.30"
   },
   {
 	"Name": "Knjiga o Milutinu, Danko Popovic",
-	"Copies": "8"
+	"Copies": "8",
+	"Price": "30.00"
   },
   {
 	"Name": "Clean Code, Robert C. Martin Series",
-	"Copies": "2"
+	"Copies": "2",
+	"Price": "15.80"
   }
 ]

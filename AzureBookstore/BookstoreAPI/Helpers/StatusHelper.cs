@@ -28,6 +28,9 @@ namespace BookstoreAPI
 		/// </summary>
 		/// <param name="validityStatus">Validity status to convert.</param>
 		/// <returns><see cref="PurchaseResponseStatus"/> corresponding to <paramref name="validityStatus"/>.</returns>
-		public static PurchaseResponseStatus ToResponseStatus(PurchaseValidityStatus validityStatus) => validityToResponseStatus[validityStatus];
+		public static PurchaseResponseStatus ToResponseStatus(PurchaseValidityStatus validityStatus)
+		{
+			return validityToResponseStatus[validityStatus];
+		}
 	}
 }

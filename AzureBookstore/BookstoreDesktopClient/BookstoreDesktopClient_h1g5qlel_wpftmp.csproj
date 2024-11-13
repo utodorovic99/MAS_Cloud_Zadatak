@@ -1,0 +1,106 @@
+<Project>
+  <PropertyGroup>
+    <AssemblyName>BookstoreDesktopClient</AssemblyName>
+    <IntermediateOutputPath>obj\Debug\</IntermediateOutputPath>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+    <MSBuildProjectExtensionsPath>C:\Users\Ugljesa\Desktop\Fakultet\Master\Cloud\Zadatak\MAS_Cloud_Zadatak\AzureBookstore\BookstoreDesktopClient\obj\</MSBuildProjectExtensionsPath>
+    <_TargetAssemblyProjectName>BookstoreDesktopClient</_TargetAssemblyProjectName>
+  </PropertyGroup>
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Net.Http.Json" Version="8.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookstoreServiceContracts\BookstoreServiceContracts.csproj" />
+    <ProjectReference Include="..\CommunicationsSDK\CommunicationsSDK.csproj" />
+    <ProjectReference Include="..\PurchaseDataModel\PurchaseDataModel.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\BookstoreResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BookstoreResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\BookstoreResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BookstoreResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ReferencePath Include="C:\Users\Ugljesa\Desktop\Fakultet\Master\Cloud\Zadatak\MAS_Cloud_Zadatak\AzureBookstore\CommunicationsSDK\bin\Debug\net48\CommunicationsSDK.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\microsoft.bcl.asyncinterfaces\8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\microsoft.servicefabric.data\7.1.2493\lib\net472\Microsoft.ServiceFabric.Data.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\microsoft.servicefabric.data.extensions\7.1.2493\lib\net472\Microsoft.ServiceFabric.Data.Extensions.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\microsoft.servicefabric.data.interfaces\7.1.2493\lib\net472\Microsoft.ServiceFabric.Data.Interfaces.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\microsoft.servicefabric.diagnostics.internal\7.1.2493\lib\net472\Microsoft.ServiceFabric.Diagnostics.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\microsoft.servicefabric.fabrictransport.internal\7.1.2493\lib\net472\Microsoft.ServiceFabric.FabricTransport.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\microsoft.servicefabric.fabrictransport.internal\7.1.2493\lib\net472\Microsoft.ServiceFabric.FabricTransport.V2.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\microsoft.servicefabric\10.1.2493\lib\net472\Microsoft.ServiceFabric.Internal.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\microsoft.servicefabric\10.1.2493\lib\net472\Microsoft.ServiceFabric.Internal.Strings.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\microsoft.servicefabric\10.1.2493\lib\net472\Microsoft.ServiceFabric.Preview.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\microsoft.servicefabric.data.extensions\7.1.2493\lib\net472\Microsoft.ServiceFabric.ReliableCollection.Interop.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\microsoft.servicefabric.services\7.1.2493\lib\net472\Microsoft.ServiceFabric.Services.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\microsoft.servicefabric.services.remoting\7.1.2493\lib\net472\Microsoft.ServiceFabric.Services.Remoting.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\mscorlib.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\PresentationCore.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\PresentationFramework.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\Desktop\Fakultet\Master\Cloud\Zadatak\MAS_Cloud_Zadatak\AzureBookstore\PurchaseDataModel\bin\Debug\net48\PurchaseDataModel.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\microsoft.servicefabric\10.1.2493\lib\net472\StartupServicesModel.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\system.buffers\4.5.1\ref\net45\System.Buffers.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Configuration.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Data.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Drawing.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\microsoft.servicefabric\10.1.2493\lib\net472\System.Fabric.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\microsoft.servicefabric\10.1.2493\lib\net472\System.Fabric.Management.ServiceModel.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\microsoft.servicefabric\10.1.2493\lib\net472\System.Fabric.Strings.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.IO.Compression.FileSystem.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\system.memory\4.5.5\lib\net461\System.Memory.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Net.Http.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\system.net.http.json\8.0.1\lib\net462\System.Net.Http.Json.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Numerics.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\system.numerics.vectors\4.5.0\ref\net46\System.Numerics.Vectors.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\system.runtime.compilerservices.unsafe\6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Runtime.Serialization.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.ServiceModel.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\system.text.encodings.web\8.0.0\lib\net462\System.Text.Encodings.Web.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\system.text.json\8.0.5\lib\net462\System.Text.Json.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\system.threading.tasks.extensions\4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll" />
+    <ReferencePath Include="C:\Users\Ugljesa\.nuget\packages\system.valuetuple\4.5.0\ref\net47\System.ValueTuple.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Windows.Controls.Ribbon.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xaml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.Linq.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\UIAutomationClient.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\UIAutomationClientsideProviders.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\UIAutomationProvider.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\UIAutomationTypes.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\WindowsBase.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C:\Users\Ugljesa\Desktop\Fakultet\Master\Cloud\Zadatak\MAS_Cloud_Zadatak\AzureBookstore\BookstoreDesktopClient\obj\Debug\net48\MainWindow.g.cs" />
+    <Compile Include="C:\Users\Ugljesa\Desktop\Fakultet\Master\Cloud\Zadatak\MAS_Cloud_Zadatak\AzureBookstore\BookstoreDesktopClient\obj\Debug\net48\View\PurchaseTitleView.g.cs" />
+    <Compile Include="C:\Users\Ugljesa\Desktop\Fakultet\Master\Cloud\Zadatak\MAS_Cloud_Zadatak\AzureBookstore\BookstoreDesktopClient\obj\Debug\net48\App.g.cs" />
+    <Compile Include="C:\Users\Ugljesa\Desktop\Fakultet\Master\Cloud\Zadatak\MAS_Cloud_Zadatak\AzureBookstore\BookstoreDesktopClient\obj\Debug\net48\BookstoreDesktopClient_Content.g.cs" />
+    <Compile Include="C:\Users\Ugljesa\Desktop\Fakultet\Master\Cloud\Zadatak\MAS_Cloud_Zadatak\AzureBookstore\BookstoreDesktopClient\obj\Debug\net48\GeneratedInternalTypeHelper.g.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="C:\Users\Ugljesa\.nuget\packages\system.text.json\8.0.5\analyzers\dotnet\roslyn4.4\cs\System.Text.Json.SourceGeneration.dll" />
+  </ItemGroup>
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+</Project>

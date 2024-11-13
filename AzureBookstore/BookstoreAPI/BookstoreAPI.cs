@@ -1,5 +1,5 @@
 ﻿using BookstoreAPI.Listeners;
-using BookstoreServiceContracts.Contracts;
+using BookstoreServiceContract.Contracts;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 using System;

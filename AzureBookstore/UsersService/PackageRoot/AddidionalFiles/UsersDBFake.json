@@ -1,0 +1,22 @@
+[
+  {
+	"Username": "student",
+	"Saldo": "30"
+  },
+  {
+	"Username": "marko.miljanov",
+	"Saldo": "50"
+  },
+  {
+	"Username": "micko.krstic",
+	"Saldo": "80"
+  },
+  {
+	"Username": "voja.tankosic",
+	"Saldo": "40"
+  },
+  {
+	"Username": "zdravko.lisica",
+	"Saldo": "100"
+  }
+]

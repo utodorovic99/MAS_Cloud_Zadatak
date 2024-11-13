@@ -5,8 +5,14 @@ using System.Threading;
 
 namespace BookstoreAPI
 {
+	/// <summary>
+	/// Service program driver.
+	/// </summary>
 	internal static class Program
 	{
+		/// <summary>
+		/// Gets service configuration.
+		/// </summary>
 		public static Configuration Configuration { get; private set; } = new Configuration();
 
 		/// <summary>
@@ -16,11 +22,6 @@ namespace BookstoreAPI
 		{
 			try
 			{
-				// The ServiceManifest.XML file defines one or more service type names.
-				// Registering a service maps a service type name to a .NET type.
-				// When Service Fabric creates an instance of this service type,
-				// an instance of the class is created in this host process.
-
 				Configuration.Initialize();
 
 				ServiceRuntime.RegisterServiceAsync("BookstoreAPIType",
@@ -28,7 +29,6 @@ namespace BookstoreAPI
 
 				ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(BookstoreAPI).Name);
 
-				// Prevents this host process from terminating so services keep running.
 				Thread.Sleep(Timeout.Infinite);
 			}
 			catch (Exception e)

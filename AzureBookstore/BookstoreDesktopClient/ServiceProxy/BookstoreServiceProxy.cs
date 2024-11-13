@@ -1,6 +1,6 @@
 ﻿using BookstoreDesktopClient.Resources;
 using BookstoreDesktopClient.ViewModel;
-using BookstoreServiceContracts.Model;
+using BookstoreServiceContract.Model;
 using CommunicationsSDK.HTTPExtensions;
 using PurchaseDataModel;
 using System.Collections.Generic;

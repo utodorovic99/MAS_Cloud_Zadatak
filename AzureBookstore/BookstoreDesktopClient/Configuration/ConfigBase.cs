@@ -10,12 +10,12 @@ namespace BookstoreDesktopClient.Configuration
 	public abstract class ConfigBase
 	{
 		/// <summary>
-		/// Sets value of property addressed by <paramref name="popertyIdentifier"/> to new value of <paramref name="propertyValue"/>.
+		/// Sets value of property addressed by <paramref name="propertyIdentifier"/> to new value of <paramref name="propertyValue"/>.
 		/// </summary>
-		/// <param name="popertyIdentifier">Property identifier.</param>
+		/// <param name="propertyIdentifier">Property identifier.</param>
 		/// <param name="propertyValue">New value of property.</param>
 		/// <returns><c>True</c> if property exits and value is properly set; otherwise returns <c>false</c>.</returns>
-		public bool SetProperty(string popertyIdentifier, string propertyValue)
+		public bool SetProperty(string propertyIdentifier, string propertyValue)
 		{
 			foreach (PropertyInfo propertyInfo in this.GetType().GetProperties())
 			{
@@ -24,7 +24,7 @@ namespace BookstoreDesktopClient.Configuration
 					continue;
 				}
 
-				if (!string.Equals(popertyIdentifier, configPropertyAttribute.Identifier, StringComparison.OrdinalIgnoreCase))
+				if (!string.Equals(propertyIdentifier, configPropertyAttribute.Identifier, StringComparison.OrdinalIgnoreCase))
 				{
 					continue;
 				}

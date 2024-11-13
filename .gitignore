@@ -33,3 +33,7 @@
 /AzureBookstore/ValidationDataModel/obj
 /AzureBookstore/.vs
 /AzureBookstore/BookstoreService/bin
+/AzureBookstore/StorageManagement/obj
+/AzureBookstore/UsersService/obj
+/AzureBookstore/UsersService/bin
+/AzureBookstore/UsersServiceContract/obj

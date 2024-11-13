@@ -1,4 +1,4 @@
-﻿using BookstoreServiceContracts.Model;
+﻿using BookstoreServiceContract.Model;
 using PurchaseDataModel;
 using System;
 using System.Collections.Generic;

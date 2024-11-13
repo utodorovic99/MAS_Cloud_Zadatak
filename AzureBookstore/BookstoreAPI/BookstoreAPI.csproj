@@ -149,9 +149,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BookstoreServiceContracts\BookstoreServiceContracts.csproj">
+    <ProjectReference Include="..\BookstoreServiceContracts\BookstoreServiceContract.csproj">
       <Project>{F889D89F-77C4-4B26-BAF7-BE8AD2A6809F}</Project>
-      <Name>BookstoreServiceContracts</Name>
+      <Name>BookstoreServiceContract</Name>
     </ProjectReference>
     <ProjectReference Include="..\CommunicationsSDK\CommunicationsSDK.csproj">
       <Project>{602D6557-99CD-486C-B7DC-07D520CFB93D}</Project>

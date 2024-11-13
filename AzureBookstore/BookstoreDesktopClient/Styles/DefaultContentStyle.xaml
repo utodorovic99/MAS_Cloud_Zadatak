@@ -35,5 +35,19 @@
 		<Setter Property="Padding" Value ="15,5,15,5"/>
 		<Setter Property="BorderThickness" Value ="0"/>
 	</Style>
+	<Style TargetType="DataGrid">
+		<Setter Property="Foreground" Value ="#03AED2"/>
+		<Setter Property="Background" Value ="#EADBC8"/>
+		<Setter Property="FontSize" Value ="14"/>
+		<Setter Property="FontWeight" Value="Bold"/>
+		<Setter Property="VerticalAlignment" Value ="Center"/>
+		<Setter Property="HorizontalAlignment" Value ="Center"/>
+		<Setter Property="Padding" Value ="15,5,15,5"/>
+		<Setter Property="BorderThickness" Value ="0"/>
+	</Style>
+
+	<Style TargetType="DataGridCell">
+		<Setter Property="Background" Value ="#EADBC8"/>
+	</Style>
 
 </ResourceDictionary>

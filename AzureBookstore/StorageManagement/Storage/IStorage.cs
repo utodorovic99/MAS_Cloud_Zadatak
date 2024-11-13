@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace BookstoreService.Storage.Title
+namespace StorageManagement
 {
 	/// <summary>
 	/// Contract for title storage.
 	/// </summary>
-	internal interface IStorage : IDisposable
+	public interface IStorage : IDisposable
 	{
 		/// <summary>
 		/// Initializes storage.

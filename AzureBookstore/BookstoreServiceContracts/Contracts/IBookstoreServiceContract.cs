@@ -1,9 +1,9 @@
-﻿using BookstoreServiceContracts.Model;
+﻿using BookstoreServiceContract.Model;
 using Microsoft.ServiceFabric.Services.Remoting;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BookstoreServiceContracts.Contracts
+namespace BookstoreServiceContract.Contracts
 {
 	/// <summary>
 	/// Contracts for operations on bookstore service.

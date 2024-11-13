@@ -1,10 +1,6 @@
-﻿using Microsoft.ServiceFabric.Services.Runtime;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Diagnostics.Tracing;
 using System.Fabric;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BookstoreAPI
@@ -25,7 +21,7 @@ namespace BookstoreAPI
 		private ServiceEventSource() : base() { }
 
 		#region Keywords
-		// Event keywords can be used to categorize events. 
+		// Event keywords can be used to categorize events.
 		// Each keyword is a bit flag. A single event can be associated with multiple keywords (via EventAttribute.Keywords property).
 		// Keywords must be defined as a public class named 'Keywords' inside EventSource that uses them.
 		public static class Keywords

@@ -109,16 +109,12 @@
     <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Listeners\ListenerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BookstoreService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ServiceEventSource.cs" />
     <Compile Include="Storage\Exceptions\FailedStorageInitializationException.cs" />
     <Compile Include="Storage\Exceptions\OperationFailedException.cs" />
-    <Compile Include="Storage\IStorage.cs" />
-    <Compile Include="Storage\Loaders\IStorageLoader.cs" />
-    <Compile Include="Storage\Loaders\JSONStorageLoader.cs" />
     <Compile Include="Storage\Title\ITitleStorage.cs" />
     <Compile Include="Storage\Title\TitleStorage.cs" />
     <Compile Include="Storage\Title\TitleStorageModel.cs" />
@@ -134,13 +130,17 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\BookstoreServiceContracts\BookstoreServiceContracts.csproj">
+    <ProjectReference Include="..\BookstoreServiceContracts\BookstoreServiceContract.csproj">
       <Project>{F889D89F-77C4-4B26-BAF7-BE8AD2A6809F}</Project>
-      <Name>BookstoreServiceContracts</Name>
+      <Name>BookstoreServiceContract</Name>
     </ProjectReference>
     <ProjectReference Include="..\CommunicationsSDK\CommunicationsSDK.csproj">
       <Project>{602D6557-99CD-486C-B7DC-07D520CFB93D}</Project>
       <Name>CommunicationsSDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StorageManagement\StorageManagement.csproj">
+      <Project>{FCFD9CEE-78B5-4077-B42B-C9866500BDB2}</Project>
+      <Name>StorageManagement</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

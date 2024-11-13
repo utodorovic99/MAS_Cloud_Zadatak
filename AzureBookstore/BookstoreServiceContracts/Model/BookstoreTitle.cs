@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace BookstoreServiceContracts.Model
+namespace BookstoreServiceContract.Model
 {
 	/// <summary>
 	/// Represents single title from bookstore.

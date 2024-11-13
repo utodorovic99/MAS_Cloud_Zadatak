@@ -4,12 +4,12 @@ using Microsoft.ServiceFabric.Services.Remoting.V1.FabricTransport.Runtime;
 using System.Collections.Generic;
 using System.Fabric.Description;
 
-namespace BookstoreService.Listeners
+namespace CommunicationsSDK.Listeners
 {
 	/// <summary>
 	/// Class for creating <see cref="ServiceInstanceListener"/> type of objects.
 	/// </summary>
-	internal static class ListenerFactory
+	public static class RpcListenerFactory
 	{
 		/// <summary>
 		/// Creates <see cref="ServiceReplicaListener"/> for each one of <paramref name="endpoints"/>.
@@ -38,6 +38,7 @@ namespace BookstoreService.Listeners
 		/// <returns><c>True</c> if <paramref name="endpoint"/> is an RPC endpoint.</returns>
 		private static bool IsRpcEndpoint(EndpointResourceDescription endpoint)
 		{
+			//This is internal encoding, not required by library.
 			return endpoint.Name.StartsWith("Rpc_", System.StringComparison.OrdinalIgnoreCase);
 		}
 	}

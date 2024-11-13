@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookstoreAPI", "BookstoreAP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookstoreDesktopClient", "BookstoreDesktopClient\BookstoreDesktopClient.csproj", "{CFF9ADF3-9F59-46C4-BBFB-242F6385C466}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookstoreServiceContracts", "BookstoreServiceContracts\BookstoreServiceContracts.csproj", "{F889D89F-77C4-4B26-BAF7-BE8AD2A6809F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookstoreServiceContract", "BookstoreServiceContracts\BookstoreServiceContract.csproj", "{F889D89F-77C4-4B26-BAF7-BE8AD2A6809F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PurchaseDataModel", "PurchaseDataModel\PurchaseDataModel.csproj", "{ADDB0265-CBAD-4F40-9B39-A81516CA4BE1}"
 EndProject
@@ -18,6 +18,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationDataModel", "ValidationDataModel\ValidationDataModel.csproj", "{5312B097-EC9C-4926-8432-FFA46B566AE1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookstoreService", "BookstoreService\BookstoreService.csproj", "{45D12451-665E-4E09-AF84-B1F69DFDB026}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersService", "UsersService\UsersService.csproj", "{FC2AB7BF-D921-460F-BBD5-E1CF7FD198CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StorageManagement", "StorageManagement\StorageManagement.csproj", "{FCFD9CEE-78B5-4077-B42B-C9866500BDB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersServiceContract", "UsersServiceContract\UsersServiceContract.csproj", "{2710C84D-D9FA-4F65-9579-3865F56CF49F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,6 +101,30 @@ Global
 		{45D12451-665E-4E09-AF84-B1F69DFDB026}.Release|Any CPU.Build.0 = Release|x64
 		{45D12451-665E-4E09-AF84-B1F69DFDB026}.Release|x64.ActiveCfg = Release|x64
 		{45D12451-665E-4E09-AF84-B1F69DFDB026}.Release|x64.Build.0 = Release|x64
+		{FC2AB7BF-D921-460F-BBD5-E1CF7FD198CC}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{FC2AB7BF-D921-460F-BBD5-E1CF7FD198CC}.Debug|Any CPU.Build.0 = Debug|x64
+		{FC2AB7BF-D921-460F-BBD5-E1CF7FD198CC}.Debug|x64.ActiveCfg = Debug|x64
+		{FC2AB7BF-D921-460F-BBD5-E1CF7FD198CC}.Debug|x64.Build.0 = Debug|x64
+		{FC2AB7BF-D921-460F-BBD5-E1CF7FD198CC}.Release|Any CPU.ActiveCfg = Release|x64
+		{FC2AB7BF-D921-460F-BBD5-E1CF7FD198CC}.Release|Any CPU.Build.0 = Release|x64
+		{FC2AB7BF-D921-460F-BBD5-E1CF7FD198CC}.Release|x64.ActiveCfg = Release|x64
+		{FC2AB7BF-D921-460F-BBD5-E1CF7FD198CC}.Release|x64.Build.0 = Release|x64
+		{FCFD9CEE-78B5-4077-B42B-C9866500BDB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCFD9CEE-78B5-4077-B42B-C9866500BDB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCFD9CEE-78B5-4077-B42B-C9866500BDB2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FCFD9CEE-78B5-4077-B42B-C9866500BDB2}.Debug|x64.Build.0 = Debug|Any CPU
+		{FCFD9CEE-78B5-4077-B42B-C9866500BDB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCFD9CEE-78B5-4077-B42B-C9866500BDB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCFD9CEE-78B5-4077-B42B-C9866500BDB2}.Release|x64.ActiveCfg = Release|Any CPU
+		{FCFD9CEE-78B5-4077-B42B-C9866500BDB2}.Release|x64.Build.0 = Release|Any CPU
+		{2710C84D-D9FA-4F65-9579-3865F56CF49F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2710C84D-D9FA-4F65-9579-3865F56CF49F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2710C84D-D9FA-4F65-9579-3865F56CF49F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2710C84D-D9FA-4F65-9579-3865F56CF49F}.Debug|x64.Build.0 = Debug|Any CPU
+		{2710C84D-D9FA-4F65-9579-3865F56CF49F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2710C84D-D9FA-4F65-9579-3865F56CF49F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2710C84D-D9FA-4F65-9579-3865F56CF49F}.Release|x64.ActiveCfg = Release|Any CPU
+		{2710C84D-D9FA-4F65-9579-3865F56CF49F}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

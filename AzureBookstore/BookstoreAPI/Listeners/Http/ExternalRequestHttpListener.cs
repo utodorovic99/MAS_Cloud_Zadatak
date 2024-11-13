@@ -94,6 +94,12 @@ namespace BookstoreAPI.Listeners.Http
 			return Task.FromResult(listeningBaseUri);
 		}
 
+		/// <inheritdoc/>
+		public void Dispose()
+		{
+			this.Abort();
+		}
+
 		/// <summary>
 		/// Starts listening for requests.
 		/// </summary>
@@ -142,12 +148,6 @@ namespace BookstoreAPI.Listeners.Http
 			//Note: It is important to use '+' instead of actual IP address.
 			//Actual IP address will be resolved through AzureFabric infrastructure.
 			return $"{endpoint.Protocol.FormattedString()}://+:{endpoint.Port}/";
-		}
-
-		/// <inheritdoc/>
-		public void Dispose()
-		{
-			this.Abort();
 		}
 	}
 }

@@ -15,12 +15,14 @@ namespace BookstoreAPI.Listeners
 		private const int NumerOfConsumerThreads = 3;
 
 		private ConcurrentQueue<T> requestQueue;
-
 		private AutoResetEvent processingGate;
 		private CancellationTokenSource cts;
 		private CancellationToken ct;
 		private Task[] consumers;
 
+		/// <summary>
+		/// Initializes new instance of <see cref="BaseRequestProcessor"/>
+		/// </summary>
 		public BaseRequestProcessor()
 		{
 			requestQueue = new ConcurrentQueue<T>();
@@ -83,18 +85,18 @@ namespace BookstoreAPI.Listeners
 			processingGate.Set();
 		}
 
-		/// <summary>
-		/// Handles request of type <typeparamref name="T"/>.
-		/// </summary>
-		/// <param name="request">Request to handle.</param>
-		protected abstract void HandleRequest(T request);
-
 		/// <inheritdoc/>
 		public void Dispose()
 		{
 			Stop();
 			DrainRequestQueue();
 		}
+
+		/// <summary>
+		/// Handles request of type <typeparamref name="T"/>.
+		/// </summary>
+		/// <param name="request">Request to handle.</param>
+		protected abstract void HandleRequest(T request);
 
 		/// <summary>
 		/// Drains request queue.

@@ -19,8 +19,6 @@ namespace BookstoreAPI.Listeners.Controllers
 		/// <remarks>
 		/// Request identifier is consisted of name of controller and name of request itself formatted as {ControllerName}/{RequestName}
 		/// </remarks>
-		/// <example>
-		/// </example>
 		IEnumerable<string> RequestsIdentifiers { get; }
 
 		/// <summary>

@@ -1,7 +1,7 @@
-﻿using BookstoreService.Listeners;
-using BookstoreService.Storage.Title;
-using BookstoreServiceContracts.Contracts;
-using BookstoreServiceContracts.Model;
+﻿using BookstoreService.Storage.Title;
+using BookstoreServiceContract.Contracts;
+using BookstoreServiceContract.Model;
+using CommunicationsSDK.Listeners;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 using System;
@@ -56,7 +56,7 @@ namespace BookstoreService
 		protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
 		{
 			IEnumerable<EndpointResourceDescription> endpoints = this.Context.CodePackageActivationContext.GetEndpoints();
-			return ListenerFactory.CreateFor(this, endpoints);
+			return RpcListenerFactory.CreateFor(this, endpoints);
 		}
 	}
 }
