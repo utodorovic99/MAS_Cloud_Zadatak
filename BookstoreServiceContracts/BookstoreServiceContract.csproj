@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>net48</TargetFramework>
+	<Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="Microsoft.ServiceFabric.Services.Remoting" Version="7.1.2493" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<ProjectReference Include="..\Common\Common.csproj" />
+	<ProjectReference Include="..\ValidationServiceContract\ValidationServiceContract.csproj" />
+  </ItemGroup>
+
+</Project>
