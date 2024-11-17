@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace BookstoreService
+namespace StorageManagement
 {
 	/// <summary>
 	/// Exception indicating that storage initialization failed.
 	/// </summary>
-	internal sealed class FailedStorageInitializationException : Exception
+	public sealed class FailedStorageInitializationException : Exception
 	{
 	}
 }

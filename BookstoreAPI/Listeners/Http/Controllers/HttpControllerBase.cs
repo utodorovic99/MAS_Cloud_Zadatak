@@ -12,7 +12,7 @@ namespace BookstoreAPI.Listeners.Http.Controllers
 	/// </summary>
 	internal abstract class HttpControllerBase : IHttpController
 	{
-		protected const int MaxWaitTimeoutMs = 5000;
+		protected const int MaxWaitTimeoutMs = 30000;
 
 		/// <summary>
 		/// Initializes new instance of <see cref="HttpControllerBase"/>.

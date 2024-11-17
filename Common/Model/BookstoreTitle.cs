@@ -17,19 +17,17 @@ namespace Common.Model
 		}
 
 		/// <summary>
-		/// Creates new instance of<see cref="BookstoreTitle"/>
-		/// </summary>
-		/// <param name="name">name of book title.</param>
-		public BookstoreTitle(string name)
-		{
-			Name = name;
-		}
-
-		/// <summary>
 		/// Gets or sets <strong>unique</strong> bookstore title name used as its identifier.
 		/// </summary>
 		[DataMember]
 		[JsonPropertyName(nameof(Name))]
 		public string Name { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Gets or sets price of title copy.
+		/// </summary>
+		[DataMember]
+		[JsonPropertyName(nameof(Price))]
+		public float Price { get; set; } = float.MaxValue;
 	}
 }

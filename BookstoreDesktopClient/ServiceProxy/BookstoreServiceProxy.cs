@@ -2,6 +2,7 @@
 using BookstoreDesktopClient.ViewModel;
 using Common.Model;
 using CommunicationsSDK.HTTPExtensions;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -16,7 +17,7 @@ namespace BookstoreDesktopClient.ServiceProxy
 	/// </summary>
 	internal sealed class BookstoreServiceProxy : IBookstoreServiceProxy
 	{
-		private const int MaxResponseTimeoutMs = 10000;
+		private const int MaxResponseTimeoutMs = 20000;
 		private readonly HttpClient bookstoreServiceHttpClient;
 
 		private event PurchaseResponseReceived purchaseReceivedEvent;
@@ -64,7 +65,9 @@ namespace BookstoreDesktopClient.ServiceProxy
 					return;
 				}
 
-				var receivedResponse = await requestTask.Result.Content.ReadFromJsonAsync<PurchaseResponse>(cancellationToken);
+				string responseBody = await t.Result.Content.ReadAsStringAsync();
+				PurchaseResponse receivedResponse = JsonConvert.DeserializeObject<PurchaseResponse>(responseBody);
+
 				PublishReceivedResponseFor(purchaseRequest.Title, receivedResponse);
 
 			}, TaskContinuationOptions.OnlyOnRanToCompletion)

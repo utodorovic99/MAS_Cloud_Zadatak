@@ -19,6 +19,11 @@ namespace ValidationService
 		public Uri UsersServiceUri { get; private set; }
 
 		/// <summary>
+		/// Gets URI of transaction coordinating service.
+		/// </summary>
+		public Uri TransactionCoordinatingServiceUri { get; private set; }
+
+		/// <summary>
 		/// Initializes self from Settings.xml.
 		/// </summary>
 		public void Initialize()
@@ -36,6 +41,10 @@ namespace ValidationService
 
 					case "UsersService":
 						UsersServiceUri = new Uri(parameter.Value);
+						break;
+
+					case "TransactionCoordinatingService":
+						TransactionCoordinatingServiceUri = new Uri(parameter.Value);
 						break;
 				}
 			}

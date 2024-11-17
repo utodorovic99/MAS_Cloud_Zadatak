@@ -1,22 +1,22 @@
 [
   {
 	"Username": "student",
-	"Saldo": "30"
+	"Saldo": "30.20"
   },
   {
 	"Username": "marko.miljanov",
-	"Saldo": "50"
+	"Saldo": "50.11"
   },
   {
 	"Username": "micko.krstic",
-	"Saldo": "80"
+	"Saldo": "80.00"
   },
   {
 	"Username": "voja.tankosic",
-	"Saldo": "40"
+	"Saldo": "40.30"
   },
   {
 	"Username": "zdravko.lisica",
-	"Saldo": "100"
+	"Saldo": "100.22"
   }
 ]

@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using UsersService.Storage.Users;
 using UsersServiceContract.Contract;
+using UsersServiceContract.Enums;
 
 namespace UsersService
 {
@@ -32,6 +33,24 @@ namespace UsersService
 		public Task<bool> CheckUsernameExists(string username)
 		{
 			return userStorage.Exists(username);
+		}
+
+		/// <inheritdoc/>
+		public Task<EnlistMoneyTransferResult> EnlistMoneyTransfer(string userId, float amount)
+		{
+			return userStorage.EnlistMoneyTransfer(userId, amount);
+		}
+
+		/// <inheritdoc/>
+		public Task<bool> ConfirmEnlistedMoneyTransfer(uint transferId)
+		{
+			return userStorage.ConfirmEnlistedMoneyTransfer(transferId);
+		}
+
+		/// <inheritdoc/>
+		public Task<bool> RevokeEnlistedMoneyTransfer(uint transferId)
+		{
+			return userStorage.RevokeEnlistedMoneyTransfer(transferId);
 		}
 
 		/// <inheritdoc/>

@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http.Json;
 using System.Threading;
-using ValidationDataContract;
 using ValidationServiceContract.Contract;
 
 namespace BookstoreAPI.Listeners.Controllers
@@ -93,22 +92,17 @@ namespace BookstoreAPI.Listeners.Controllers
 
 				ScheduleTimedAutoCancellation(out CancellationTokenSource cts);
 				IValidationServiceContract serviceProxy = proxyProvider.GetProxyFor<IValidationServiceContract>();
-				PurchaseValidityStatus validityStatus = await serviceProxy.ValidatePurchaseRequest(request);
+				PurchaseResponse purchaseResponse = await serviceProxy.TryExecutePurchase(request);
 
 				HttpListenerResponse response = context.Response;
 
-				PurchaseValidationResponse validationResponse = new PurchaseValidationResponse()
-				{
-					ValidityStatus = validityStatus,
-				};
-
-				JsonContent validationResponseContent = JsonContent.Create(validationResponse);
+				JsonContent validationResponseContent = JsonContent.Create(purchaseResponse);
 				byte[] validationResponseContentRaw = validationResponseContent.ReadAsByteArrayAsync().Result;
 
 				response.StatusCode = (int)HttpStatusCode.OK;
 				response.ContentType = "application/json";
 
-				response.OutputStream.Write(validationResponseContentRaw, 0, 0);
+				response.OutputStream.Write(validationResponseContentRaw, 0, validationResponseContentRaw.Length);
 				response.OutputStream.Close();
 			}
 			catch (Exception e)

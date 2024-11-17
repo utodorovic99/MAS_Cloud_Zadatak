@@ -131,6 +131,10 @@
       <Project>{C30F2E08-ED03-4865-91F3-67818F154FAC}</Project>
       <Name>CommunicationsSDK</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TransactionCoordinatingServiceContract\TransactionCoordinatingServiceContract.csproj">
+      <Project>{D7D1C029-AD65-4DB5-94DD-7DCB498EE25F}</Project>
+      <Name>TransactionCoordinatingServiceContract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UsersServiceContract\UsersServiceContract.csproj">
       <Project>{52CAAC47-A90F-414B-9795-5F491C6E1B0E}</Project>
       <Name>UsersServiceContract</Name>

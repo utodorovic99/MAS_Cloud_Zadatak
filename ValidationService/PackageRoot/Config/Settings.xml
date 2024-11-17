@@ -3,5 +3,6 @@
   <Section Name="ServiceAddresses">
 	<Parameter Name="BookstoreService" Value="fabric:/AzureBookstore/BookstoreService"/>
 	<Parameter Name="UsersService" Value="fabric:/AzureBookstore/UsersService"/>
+	<Parameter Name="TransactionCoordinatingService" Value="fabric:/AzureBookstore/TransactionCoordinatingService"/>
   </Section>
 </Settings>

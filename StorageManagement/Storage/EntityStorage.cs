@@ -15,7 +15,7 @@ namespace StorageManagement
 		where TKey : IComparable<TKey>, IEquatable<TKey>
 		where TValue : class
 	{
-		private const int MaxWaitTimeoutMs = 10000;
+		private const int MaxWaitTimeoutMs = 30000;
 
 		protected readonly IReliableStateManager stateManager;
 		protected readonly string repositoryStorageKey;
@@ -98,7 +98,7 @@ namespace StorageManagement
 		/// <summary>
 		/// Asynchronously initializes storage.
 		/// </summary>
-		private async void InitializeStorageAsync()
+		protected virtual async void InitializeStorageAsync()
 		{
 			entityRepository = await stateManager.GetOrAddAsync<IReliableDictionary<TKey, TValue>>(repositoryStorageKey);
 

@@ -1,4 +1,5 @@
 ﻿using BookstoreServiceContract.Contracts;
+using Common.Enums;
 using Common.Model;
 using CommunicationsSDK.Listeners;
 using CommunicationsSDK.Proxies;
@@ -10,8 +11,8 @@ using System.Fabric;
 using System.Fabric.Description;
 using System.Threading;
 using System.Threading.Tasks;
+using TransactionCoordinatingServiceContract.Contract;
 using UsersServiceContract.Contract;
-using ValidationDataContract;
 using ValidationServiceContract.Contract;
 
 namespace ValidationService
@@ -26,36 +27,35 @@ namespace ValidationService
 		/// <summary>
 		/// Initializes new instance of <see cref="ValidationService"/>.
 		/// </summary>
-		/// <param name="context"></param>
+		/// <param name="context">Service context.</param>
 		public ValidationService(StatelessServiceContext context)
 			: base(context)
 		{
 		}
 
 		/// <inheritdoc/>
-		public async Task<PurchaseValidityStatus> ValidatePurchaseRequest(PurchaseRequest purchaseRequest)
+		public async Task<PurchaseResponse> TryExecutePurchase(PurchaseRequest purchaseRequest)
 		{
 			try
 			{
-				IBookstoreServiceContract bookstoreService = proxyProvider.GetProxyFor<IBookstoreServiceContract>();
-				bool titleExists = await bookstoreService.CheckTitleExists(purchaseRequest.Title);
-				if (!titleExists)
+				PurchaseResponse purchaseResponse = new PurchaseResponse();
+
+				bool isRequestValid = await Validate(purchaseRequest, purchaseResponse);
+				if (!isRequestValid)
 				{
-					return PurchaseValidityStatus.UnknownBookTitle;
+					return purchaseResponse;
 				}
 
-				IUsersServiceContract usersService = proxyProvider.GetProxyFor<IUsersServiceContract>();
-				bool userExists = await usersService.CheckUsernameExists(purchaseRequest.User);
-				if (!userExists)
-				{
-					return PurchaseValidityStatus.InvalidUser;
-				}
+				ITransactionCoordinatingServiceContract transactionCoordinatingServiceProxy = proxyProvider.GetProxyFor<ITransactionCoordinatingServiceContract>();
 
-				return PurchaseValidityStatus.Valid;
+				return await transactionCoordinatingServiceProxy.ExecuteCoordinatedPurchase(purchaseRequest);
 			}
-			catch (Exception e)
+			catch
 			{
-				return PurchaseValidityStatus.Invalid;
+				return new PurchaseResponse()
+				{
+					Status = PurchaseResponseStatus.Fail,
+				};
 			}
 		}
 
@@ -95,6 +95,34 @@ namespace ValidationService
 		{
 			proxyManager.CreateStatefullProxiesFor<IBookstoreServiceContract>(Program.Configuration.BookstoreServiceUri);
 			proxyManager.CreateStatefullProxiesFor<IUsersServiceContract>(Program.Configuration.UsersServiceUri);
+			proxyManager.CreateStatelessProxiesFor<ITransactionCoordinatingServiceContract>(Program.Configuration.TransactionCoordinatingServiceUri);
+		}
+
+		/// <summary>
+		/// Validates <paramref name="purchaseRequest"/>.
+		/// </summary>
+		/// <param name="purchaseRequest">Request to validate </param>
+		/// <param name="purchaseResponse">Response containing error indicator if validation failed.</param>
+		/// <returns><c>True</c> if validation succeeded; <c>false</c> otherwise.</returns>
+		private async Task<bool> Validate(PurchaseRequest purchaseRequest, PurchaseResponse purchaseResponse)
+		{
+			IBookstoreServiceContract bookstoreService = proxyProvider.GetProxyFor<IBookstoreServiceContract>();
+			bool titleExists = await bookstoreService.CheckTitleExists(purchaseRequest.Title);
+			if (!titleExists)
+			{
+				purchaseResponse.Status = PurchaseResponseStatus.UnknownBookTitle;
+				return false;
+			}
+
+			IUsersServiceContract usersService = proxyProvider.GetProxyFor<IUsersServiceContract>();
+			bool userExists = await usersService.CheckUsernameExists(purchaseRequest.User);
+			if (!userExists)
+			{
+				purchaseResponse.Status = PurchaseResponseStatus.InvalidUser;
+				return false;
+			}
+
+			return true;
 		}
 	}
 }

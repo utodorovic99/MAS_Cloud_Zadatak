@@ -16,7 +16,7 @@ namespace CommunicationsSDK.Proxies
 	/// </summary>
 	public sealed class ServiceProxyManager : IServiceProxyProvider
 	{
-		private const int MaxWaitTimeoutMs = 5000;
+		private const int MaxWaitTimeoutMs = 30000;
 
 		private readonly Dictionary<Type, IService> serviceProxiesByContractType;
 

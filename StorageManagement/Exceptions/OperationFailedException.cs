@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace BookstoreService.Storage.Exceptions
+namespace StorageManagement
 {
 	/// <summary>
 	/// Exception indicating that operation on storage failed.
 	/// </summary>
-	internal sealed class OperationFailedException : Exception
+	public sealed class OperationFailedException : Exception
 	{
 	}
 }

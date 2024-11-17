@@ -7,6 +7,7 @@
 
   <ItemGroup>
 	<PackageReference Include="Microsoft.ServiceFabric.Services.Remoting" Version="7.1.2493" />
+	<PackageReference Include="System.Text.Json" Version="8.0.5" />
   </ItemGroup>
 
 </Project>

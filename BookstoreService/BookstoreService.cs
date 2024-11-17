@@ -1,5 +1,6 @@
 ﻿using BookstoreService.Storage.Title;
 using BookstoreServiceContract.Contracts;
+using BookstoreServiceContract.Model;
 using Common.Model;
 using CommunicationsSDK.Listeners;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
@@ -35,9 +36,34 @@ namespace BookstoreService
 			return titleStorage.GetAllTitles();
 		}
 
+		/// <inheritdoc/>
+		public Task<BookstoreTitle> GetTitle(string titleName)
+		{
+			return titleStorage.GetTitle(titleName);
+		}
+
+		/// <inheritdoc/>
 		public Task<bool> CheckTitleExists(string titleName)
 		{
 			return titleStorage.Exists(titleName);
+		}
+
+		/// <inheritdoc/>
+		public Task<BookstoreEnlistPurchaseResult> EnlistBookForPurchase(string bookId)
+		{
+			return titleStorage.EnlistBookForPurchase(bookId);
+		}
+
+		/// <inheritdoc/>
+		public Task<bool> ConfirmEnlistedPurchase(uint purchaseId)
+		{
+			return titleStorage.ConfirmEnlistedPurchase(purchaseId);
+		}
+
+		/// <inheritdoc/>
+		public Task<bool> RevokeEnlistedPurchase(uint purchaseId)
+		{
+			return titleStorage.RevokeEnlistedPurchase(purchaseId);
 		}
 
 		/// <summary>

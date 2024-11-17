@@ -127,7 +127,6 @@
   <ItemGroup>
     <Compile Include="Configuration\Configuration.cs" />
     <Compile Include="Extensions\EndpointProtocolExtension.cs" />
-    <Compile Include="Helpers\StatusHelper.cs" />
     <Compile Include="Listeners\BaseRequestProcessor.cs" />
     <Compile Include="Listeners\Http\Controllers\HttpControllerBase.cs" />
     <Compile Include="Listeners\Http\Controllers\IHttpController.cs" />

@@ -1,7 +1,6 @@
 ﻿using Common.Model;
 using Microsoft.ServiceFabric.Services.Remoting;
 using System.Threading.Tasks;
-using ValidationDataContract;
 
 namespace ValidationServiceContract.Contract
 {
@@ -11,10 +10,10 @@ namespace ValidationServiceContract.Contract
 	public interface IValidationServiceContract : IService
 	{
 		/// <summary>
-		/// Validates <paramref name="purchaseRequest"/>.
+		/// Tries to execute <paramref name="purchaseRequest"/> in case it is valid.
 		/// </summary>
-		/// <param name="purchaseRequest">Request to validate.</param>
-		/// <returns>Validity status of <paramref name="purchaseRequest"/>.</returns>
-		Task<PurchaseValidityStatus> ValidatePurchaseRequest(PurchaseRequest purchaseRequest);
+		/// <param name="purchaseRequest">Request to execute.</param>
+		/// <returns>Response on <paramref name="purchaseRequest"/>.</returns>
+		Task<PurchaseResponse> TryExecutePurchase(PurchaseRequest purchaseRequest);
 	}
 }

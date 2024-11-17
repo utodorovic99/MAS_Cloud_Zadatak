@@ -53,3 +53,7 @@ BookstoreDesktopClient/BookstoreDesktopClient_n1xcnm0y_wpftmp.csproj
 /UsersServiceContract/obj
 /ValidationServiceContract/bin
 /ValidationServiceContract/obj
+/TransactionCoordinatingService/bin
+/TransactionCoordinatingService/obj
+/TransactionCoordinatingServiceContract/obj
+/TransactionCoordinator/obj
